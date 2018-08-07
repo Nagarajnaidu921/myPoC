@@ -1,0 +1,16 @@
+
+<form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="forms">
+        <div *ngFor="let form of eventForm.get('forms').controls; index as i">
+          <div [formGroupName]="i">
+              <input type="text" formControlName="title"><br>
+              <input type="date" formControlName="date"><br>
+              <input type="Image Name" formControlName="imgName"><br>
+              <textarea formControlName="description" cols="30" rows="10"></textarea>
+          </div>
+        </div>
+      </div>
+      <button type="submit" [disabled]="eventForm.invalid">Save</button>
+</form>
+
+<div><button (click)="addForm()">add</button></div>
